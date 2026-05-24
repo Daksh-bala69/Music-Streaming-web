@@ -33,10 +33,10 @@ body {
 }
 
 .logo {
-  color: var(--accent);
-  font-size: 34px;
-  font-style: italic;
-  margin-bottom: 32px;
+    color: var(--accent);
+    font-size: 34px;
+    font-style: italic;
+    margin-bottom: 32px;
 }
 
 /* Menu */
@@ -48,12 +48,16 @@ body {
 
 .menu a{
     color: var(--text-soft);
-    padding: 2px 4px;
+    padding: 5px 12px;
+    border-radius : 8px;
+    text-decoration: none;
 }
 
-.menu a.active,
+.menu a.active{
+    
+},
 
-.menu a.hover{
+.menu a:hover{
     background: rgba(212, 163, 115, 0.14);
     color: var(--text-main);
 }
@@ -61,19 +65,9 @@ body {
 
 /* album art */
 .albumCover{
-    float:left;
     height:300px;
     border-radius: 9px;
     border: 3px solid var(--border);
-}
-
-.songTop h1{
-    font-size: 36px;
-}
-
-.songTop h2{
-    color: var(--accent);
-    margin: 10px 0;
 }
 
 /* divisions for queue, songPlayer and sideBar */
@@ -97,4 +91,86 @@ body {
 
 .bottomPlayer {
     grid-column: span 3;
+}
+
+/* Grid for the player, lyrics and artist */
+
+.songTop {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.songInfo {
+    padding-top: 5px;
+}
+
+
+.songTop h1{
+    font-size: 36px;
+}
+
+.songTop h2{
+    color: var(--accent);
+    margin: 10px 0;
+}
+
+/* PROPERTY GRID */
+
+.songInfo-Container{
+    display: flex;
+    gap: 10px;
+    margin: 18px 0 32px;
+}
+
+.songInfo-Container div{
+    background: rgba(212, 163, 115, 0.14);
+    color: var(--accent);
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.progressArea{
+    display: grid;
+    grid-template-columns: 40px auto 40px;
+    align-items: center;
+    gap: 5px;
+    color: var(--accent);
+}
+
+.progressBar {
+    height: 5px;
+    background: rgba(176, 137, 104, 0.3);
+    border-radius: 999px;
+}
+
+.progressFill {
+  width: 38%;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.controls{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin-top: 35px;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.playButton {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: var(--accent) !important;
+  color: var(--background) !important;
 }
