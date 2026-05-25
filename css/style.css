@@ -69,22 +69,23 @@ body {
 }
 
 /* divisions for queue, songPlayer and sideBar */
-.container > div{
-    background: var(--card);
-    border: 3px solid var(--border);
-    border-radius: 20px;
-    margin: 5px 8px 5px 8px;
-    padding: 20px;
+.container > div {
+  background: var(--card);
+  border: 3px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  overflow: hidden;
 }
 
 /* Main Grid */
 .container {
-    display: grid;
-    gap:10px;
-    padding: 5px;
-    height:100vh;
-    grid-template-rows: 10fr 1fr;
-    grid-template-columns: 1fr 4fr 2fr;
+  display: grid;
+  gap: 10px;
+  padding: 5px;
+  height: 100vh;
+  grid-template-rows: 1fr 90px;
+  grid-template-columns: 1fr 4fr 2fr;
+  overflow: hidden;
 }
 
 .bottomPlayer {
@@ -267,4 +268,81 @@ body {
   color: var(--accent);
   font-size: 13px;
   text-align: right;
+}
+
+
+/* BOTTOM-PLAYER */
+.bottomPlayer {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: 260px 1fr 260px;
+  text-align: center;
+}
+
+.miniSong {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.miniSong img {
+  height: 45px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.miniSong p {
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.miniSong button {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--accent);
+}
+
+.bottomControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}
+
+.bottomControls button {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 22px;
+}
+
+.bottomPlayButton {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--accent) !important;
+  color: var(--background) !important;
+}
+
+.bottomVolumeArea {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+}
+
+.volumeBar {
+  width: 160px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(176, 137, 104, 0.3);
+}
+
+.volumeFill {
+  width: 65%;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
 }
