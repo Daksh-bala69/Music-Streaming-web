@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* colors/theme */
+:root {
+  --background: #1A120B;
+  --surface: #2A1B13;
+  --card: #3C2A21;
+  --elevated: #4A3528;
+
+  --primary: #D4A373;
+  --accent: #E6B87A;
+
+  --text-main: #FAEDCD;
+  --text-soft: #B08968;
+  --text-muted: #8C6F57;
+
+  --border: rgba(212, 163, 115, 0.18);
+  --shadow: rgba(0, 0, 0, 0.45);
+}
+/* same design as home page */
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(212, 163, 115, 0.12), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(230, 184, 122, 0.08), transparent 35%),
+    var(--background);
+  color: var(--text-main);
+  font-family: Georgia, serif;
+}
+
+.logo {
+    color: var(--accent);
+    font-size: 34px;
+    font-style: italic;
+    margin-bottom: 32px;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu a{
+    color: var(--text-soft);
+    padding: 5px 12px;
+    border-radius : 8px;
+    text-decoration: none;
+}
+
+.menu a:hover{
+    background: rgba(212, 163, 115, 0.14);
+    color: var(--text-main);
+}
+
+.container > div{
+    background: var(--card);
+    border: 3px solid var(--border);
+    border-radius: 20px;
+    margin: 5px 8px 5px 8px;
+    padding: 20px;
+}
+
+.container {
+    display: grid;
+    gap:10px;
+    padding: 5px;
+    height:100vh;
+    grid-template-rows: 10fr 1fr;
+    grid-template-columns: 1fr 4fr 2fr;
+}
+
+.bottomPlayer {
+    grid-column: span 3;
+}
+
+.playlist-block{
+    overflow-y: scroll;
+}
+
+.playlist {
+    display: flex;
+    flex-direction: row;
+}
+
+.playlist:hover{
+    background: rgba(212, 163, 115, 0.14);
+    color: var(--text-main);
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+.playlist-info{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.playlist-info > p{
+    margin: 10px;
+}
