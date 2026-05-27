@@ -34,11 +34,11 @@
             </div>
             <!-- PROGRESS BAR -->
             <div class="progressArea">
-              <span>1:34</span>
+              <span id="currentTime">1:34</span>
               <div class="progressBar">
-                <div class="progressFill"></div>
+                <div class="progressFill" id="progressFill"></div>
               </div>
-              <span>4:15</span>
+              <span id="duration">4:15</span>
             </div>
             <div class="controls">
               <button>⤨</button>
@@ -74,7 +74,7 @@
 
         <div class="queueList">
 
-          <div class="queueItem active">
+          <div class="queueItem active" data-time="3:23">
             <img src="./assets/images/Kanye-Graduation-blank.png" alt="">
             <div class="queueSongInfo">
               <h4>Good Life</h4>
@@ -83,7 +83,7 @@
             <span class="songTime">▶</span>
           </div>
 
-          <div class="queueItem">
+          <div class="queueItem" data-time="5:12">
             <img src="./assets/images/Kanye-Graduation-blank.png" alt="">
             <div class="queueSongInfo">
               <h4>Stronger</h4>
@@ -92,7 +92,7 @@
             <span class="songTime">5:12</span>
           </div>
 
-          <div class="queueItem">
+          <div class="queueItem" data-time="3:57">
             <img src="./assets/images/Kanye-Graduation-blank.png" alt="">
             <div class="queueSongInfo">
               <h4>Flashing Lights</h4>
@@ -101,7 +101,7 @@
             <span class="songTime">3:57</span>
           </div>
 
-          <div class="queueItem">
+          <div class="queueItem" data-time="3:24">
             <img src="./assets/images/Kanye-Graduation-blank.png" alt="">
             <div class="queueSongInfo">
               <h4>Homecoming</h4>
@@ -115,10 +115,10 @@
       <!-- Bottom Player -->
       <div class="bottomPlayer">
         <div class="miniSong">
-          <img src="./assets/images/Kanye-Graduation-blank.png" alt="Album Cover">
+          <img src="./assets/images/Kanye-Graduation-blank.png" alt="Album Cover" id="bottomAlbumCover">
           <div>
-            <h4>Good Life</h4>
-            <p>Kanye West</p>
+            <h4 id="bottomSongTitle">Good Life</h4>
+            <p id="bottomSongArtist">Kanye West</p>
           </div>
 
           <button class="heartButton">♥</button>
