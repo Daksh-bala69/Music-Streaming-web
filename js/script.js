@@ -6,10 +6,19 @@ const bottomPlayButton = document.getElementById("bottomPlayButton");
 
 const progressFill = document.getElementById("progressFill");
 
+// BOTTOM PLAYER ELEMENTS
 const bottomAlbumCover = document.getElementById("bottomAlbumCover");
 const bottomSongTitle = document.getElementById("bottomSongTitle");
 const bottomSongArtist = document.getElementById("bottomSongArtist");
 
+// MAIN PLAYER ELEMENTS
+const mainPlayerCover= document.getElementById("mainPlayerCover");
+const mainSongTitle= document.getElementById("mainSongTitle");
+const mainSongArtist= document.getElementById("mainSongArtist");
+
+console.log(mainPlayerCover);
+console.log(mainSongArtist);
+console.log(mainSongTitle);
 
 function updatePlayButtons() {
   if (isPlaying) {
@@ -77,6 +86,11 @@ queueItems.forEach((item) => {
     bottomSongArtist.textContent = queueSongInfo.querySelector("p").textContent;
     bottomAlbumCover.src = item.querySelector("img").src;
     
+    //UPDATING THE MAIN PLAYER (These obj's were defined at the beginning)
+    mainSongTitle.textContent = queueSongInfo.querySelector("h4").textContent;
+    mainSongArtist.textContent = queueSongInfo.querySelector("p").textContent;
+    mainPlayerCover.src = item.querySelector("img").src;
+
     progress = 0;
     progressFill.style.width = "0%";
   });
