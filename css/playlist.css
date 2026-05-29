@@ -21,7 +21,7 @@
   --border: rgba(212, 163, 115, 0.18);
   --shadow: rgba(0, 0, 0, 0.45);
 }
-/* same design as home page */
+
 body {
   min-height: 100vh;
   background:
@@ -39,6 +39,7 @@ body {
     margin-bottom: 32px;
 }
 
+/* Menu */
 .menu{
     display: flex;
     flex-direction: column;
@@ -55,6 +56,7 @@ body {
 .menu a:hover{
     background: rgba(212, 163, 115, 0.14);
     color: var(--text-main);
+    box-shadow: 0 0 18px rgba(230, 184, 122, 0.18);
 }
 
 .container > div{
@@ -65,111 +67,21 @@ body {
     padding: 20px;
 }
 
-.container {
-    display: grid;
-    gap:10px;
-    padding: 5px;
-    height:100vh;
-    grid-template-rows: 10fr 1fr;
-    grid-template-columns: 1fr 4fr 2fr;
-}
-
-.bottomPlayer {
-    grid-column: span 3;
-}
-
-/* playlists */
-.playlist-block{
-    overflow-y: scroll;
-}
-
-.playlist {
+.container{
     display: flex;
     flex-direction: row;
 }
-
-.playlist:hover{
-    background: rgba(212, 163, 115, 0.14);
-    color: var(--text-main);
+.songList{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 600px;
 }
 
 img {
-    width: 100px;
     height: 100px;
-    margin: 10px;
 }
 
-.playlist-info{
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-}
-
-.playlist-info > p{
-    margin: 10px;
-}
-
-/* QUEUE */
-.queueHeader{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-  color: var(--accent);
-}
-
-.queueHeader span {
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.queueList{
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.queueItem{
-  display: grid;
-  grid-template-columns: 55px 1fr 45px;
-  align-items: center;
-  gap: 12px;
-
- padding: 10px;
-  border-radius: 12px;
-  transition: 0.25s ease;
-}
-
-.queueItem:hover,
-.queueItem.active {
-  background: rgba(212, 163, 115, 0.14);
-  box-shadow: 0 0 18px rgba(230, 184, 122, 0.12);
-}
-
-.queue img{
-  height: 55px;  
-  width: 55px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-}
-
-.queueSongInfo h4 {
-  color: var(--text-main);
-  font-size: 16px;
-  margin-bottom: 4px;
-}
-
-.queueSongInfo p {
-  color: var(--accent);
-  font-size: 13px;
-}
-
-.songTime {
-  color: var(--accent);
-  font-size: 13px;
-  text-align: right;
-}
 
 /* BOTTOM-PLAYER */
 .bottomPlayer {
