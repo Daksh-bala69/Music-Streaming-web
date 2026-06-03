@@ -139,7 +139,7 @@ body {
 }
 
 .progressBar {
-    height: 5px;
+    height: 7px;
     background: rgba(176, 137, 104, 0.3);
     border-radius: 999px;
 }
