@@ -32,6 +32,7 @@ const songs =[
 
 let isPlaying = false;
 
+let currVolume = 1;
 let currSongIndex = 0;
 let currSong = new Audio(songs[currSongIndex].audio);
 //CURRENT TIME AND THE DURATION OF THE SONG (CURRENT TIME NEEDS TO UPDATED FREQUENTLY )
@@ -70,6 +71,8 @@ console.log(mainPlayerCover);
 console.log(mainSongArtist);
 console.log(mainSongTitle);
 
+const volumeBar = document.querySelector(".volumeBar");
+const volumeFill = document.querySelector(".volumeFill");
 
 const queueItems = document.querySelectorAll(".queueItem");
 
@@ -103,6 +106,9 @@ function loadSong(index) {
   queueItems[index].querySelector(".songTime").textContent = "▶";
 
   setSongEndLogic();
+
+// LOADING THE VOLUME THE SAME AS IT WAS
+  currSong.volume = currVolume;
 };
 
 loadSong(0);
@@ -157,6 +163,10 @@ setInterval(function() {
     //SUCH THAT THE CURRENT TIME IS ALWATYS OF 2 DIGITS
     currentTime.textContent = minutes + ":" + String(seconds).padStart(2,"0");
   }
+//UPDATING THE VOLUME BAR EACH TIME 
+ 
+  volumeFill.style.width = currSong.volume*100 + "%";
+
 }, 500);
 
 
@@ -245,8 +255,6 @@ nextButton.addEventListener("click", function () {
 });
 
 // FOR CLICKING THE PROGRESS BAR TO CHANGE DURATION FO THE SONG
-const volumeBar = document.querySelector(".volumeBar");
-const volumeFill = document.querySelector(".volumeFill");
 
 function seekVol(e) {
 
@@ -259,6 +267,7 @@ function seekVol(e) {
   percent = Math.max(0, Math.min(1, percent));
 
   currSong.volume = percent;
+  currVolume = percent;
   volumeFill.style.width = percent * 100 + "%";
   
 }
