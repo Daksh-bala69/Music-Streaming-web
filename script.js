@@ -102,6 +102,7 @@ function loadSong(index) {
   queueItems[index].classList.add("active");
   queueItems[index].querySelector(".songTime").textContent = "▶";
 
+  setSongEndLogic();
 };
 
 loadSong(0);
@@ -214,7 +215,73 @@ document.addEventListener("mouseup", function () {
   isDragging = false;
 });
 
+// SONG ENDING LOGIC
 
-const rect = progressBar.getBoundingClientRect();
-console.log(rect);
+function setSongEndLogic() {
+  currSong.addEventListener("ended", function() {
+    loadSong(currSongIndex + 1);
+    isPlaying = true;
+    updatePlayButtons();
+  });
+}
 
+// PREVIOUS BUTTON
+
+const previousButton = document.getElementById("previousButton");
+previousButton.addEventListener("click", function () {
+  currSong.pause()
+  loadSong(currSongIndex - 1);
+  isPlaying = true;
+  updatePlayButtons();
+});
+
+// NEXT BUTTON
+const nextButton = document.getElementById("nextButton");
+nextButton.addEventListener("click", function () {
+  currSong.pause()
+  loadSong(currSongIndex + 1);
+  isPlaying = true;
+  updatePlayButtons();
+});
+
+// FOR CLICKING THE PROGRESS BAR TO CHANGE DURATION FO THE SONG
+const volumeBar = document.querySelector(".volumeBar");
+const volumeFill = document.querySelector(".volumeFill");
+
+function seekVol(e) {
+
+  if (!currSong.duration) return;
+  const rect = volumeBar.getBoundingClientRect();
+
+  let clickX = e.clientX - rect.left;
+  let percent = clickX / rect.width;
+
+  percent = Math.max(0, Math.min(1, percent));
+
+  currSong.volume = percent;
+  volumeFill.style.width = percent * 100 + "%";
+  
+}
+
+volumeBar.addEventListener("click", function (e) {
+  seekVol(e);
+});
+
+// FOR DRAGGING THE PROGRESS BAR
+let isDraggingVol = false;
+
+
+volumeBar.addEventListener("mousedown", function (e) {
+  isDraggingVol = true;
+  seekVol(e);
+});
+
+document.addEventListener("mousemove", function (e) {
+  if (isDraggingVol) {
+    seekVol(e);
+  }
+});
+
+document.addEventListener("mouseup", function () {
+  isDraggingVol = false;
+});
